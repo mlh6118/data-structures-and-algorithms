@@ -34,6 +34,23 @@ class LinkedList:
         new_str += "NULL"
         return new_str
 
+    def append(self, new_value):
+        '''
+        This method will add a new node to the end of a linked list.  If there are no nodes in the linked list,
+        the method will call the insert method to add the node.
+        '''
+        if self.head is None:
+            self.insert(new_value)
+            return
+        current = self.head
+        while current:
+            if current.next is None:
+                node = Node(new_value)
+                current.next = node
+                return
+            current = current.next
+
+
 if __name__ == '__main__':
     ll = LinkedList()
     ll.insert(5)
