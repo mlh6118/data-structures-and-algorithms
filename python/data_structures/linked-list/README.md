@@ -23,12 +23,33 @@ Time: O(n) because the singly linked list is traversed via a while loop.
 ## API
 * __\_\_str\_\_(self)__: Refers back to the to_string() method.
 * __insert(self, value)__: Allows insertion of a new node at the start of the
-  head
-of the Linked List.
+  head of the Linked List.
 * __includes(self, value)__: Allows checking that a value is within a node
   of the Linked List.
 * __to_string(self)__: Returns a list of all of the values contained in the
   Linked List with arrows separating them.  Ex: { a } -> { b } -> { c } -> NULL
+* __append(self)__: Adds a node to the end of a Linked List.
+* __insert_before(self, search_value, new_value)__: Adds a node before the
+  first value that matches the search value.
+* __insert_after(self, search_value, new_value)__: Adds a node after the
+  first value that matches the search value.
+* __insert_before_empty(self, search_value, new_value)__: Runs insert_before
+  if not an empty Linked List.  If empty Linked List, raises TargetError
+  (Exception).
+* __insert_before_missing(self, search_value, new_value)__: Runs
+  insert_before if search value is found.  If search value not found, raises
+  TargetError(Exception).
+* __insert_after_empty(self, search_value, new_value)__: Runs insert_after
+  if not an empty Linked List.  If empty Linked List, raises TargetError
+  (Exception).
+* __insert_after_missing(self, search_value, new_value)__: Runs
+  insert_after if search value is found.  If search value not found, raises
+  TargetError(Exception).
+
+### Whiteboard
+![Linked List Implementation](assets/Linked%20List%20Implementation%20.png)
+
+![Linked List Insertion](assets/Linked List Insertion.png)
 
 
-### Worked with JJ Escandor and Joey Marianer
+#### Worked with JJ Escandor and Joey Marianer
