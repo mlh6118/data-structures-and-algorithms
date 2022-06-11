@@ -51,5 +51,4 @@ Time: O(n) because the singly linked list is traversed via a while loop.
 
 ![Linked List Insertion](assets/Linked List Insertion.png)
 
-
 #### Worked with JJ Escandor, Joey Marianer, Justin Hamerly (TA), and Tammy Do (TA)
