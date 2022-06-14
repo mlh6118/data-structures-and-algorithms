@@ -49,6 +49,6 @@ Time: O(n) because the singly linked list is traversed via a while loop.
 ### Whiteboard
 ![Linked List Implementation](assets/Linked%20List%20Implementation.png)
 
-![Linked List Insertion](assets/Linked%20List%20Insertion.png)
+![Zipping Linked Lists](assets/zip_lists.png)
 
-#### Worked with JJ Escandor, Joey Marianer, Justin Hamerly (TA), and Tammy Do (TA)
+#### Worked with JJ Escandor, Jae, Joey Marianer, Justin Hamerly (TA), and Tammy Do (TA)
