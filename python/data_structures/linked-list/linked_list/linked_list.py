@@ -232,6 +232,39 @@ class LinkedList:
             message = "Value to insert after does not exist."
             raise TargetError(message)
 
+    def zip_lists(self, a, b):
+        current_a = a.head
+        current_b = b.head
+        # print("Start")
+        # print("current_a: ", current_a.value, " current_b: ", current_b.value)
+        while current_a.next and current_b.next:
+            temp_a = current_a.next
+            temp_b = current_b.next
+            # print("while")
+            # print("temp_a: ", temp_a.value, " temp_b: ", temp_b.value)
+            current_a.next = current_b
+            current_b.next = temp_a
+            # print("current_a.next: ", temp_a.value, " current_b.next: ", temp_b.value)
+            current_a = temp_a
+            current_b = temp_b
+            # print("current_a: ", current_a.value, " current_b: ", current_b.value)
+            if current_a.next and current_b.next:
+                temp_a = current_a.next
+                temp_b = current_b.next
+                # print("if in while")
+                # print("temp_a: ", temp_a.value, " temp_b: ", temp_b.value)
+        if not current_a.next:
+            current_a.next = current_b
+            # print("if outside while")
+            # print("current_b: ", current_b.value)
+        elif not current_b.next:
+            current_a.next = current_b
+            current_b.next = temp_a
+        #     print("elif")
+        #     print("current_a.next: ", current_b.value, " current_b.next: ", temp_a.value)
+        # print(list_a)
+        return a
+
 
 class TargetError(Exception):
     def __init__(self, message):
@@ -240,7 +273,16 @@ class TargetError(Exception):
 
 if __name__ == '__main__':
     ll = LinkedList()
-    ll.insert(5)
-    ll.insert(6)
-    ll.insert(7)
-    ll.to_string()
+#    ll.insert(5)
+#    ll.insert(6)
+#    ll.insert(7)
+#    ll.to_string()
+    list_a = LinkedList()
+    for value in reversed([1, 2, 3]):
+        list_a.insert(value)
+
+    list_b = LinkedList()
+    for value in reversed(["a", "b", "c"]):
+        list_b.insert(value)
+
+    ll.zip_lists(list_a, list_b)
