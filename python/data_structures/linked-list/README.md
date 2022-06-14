@@ -47,7 +47,7 @@ Time: O(n) because the singly linked list is traversed via a while loop.
   TargetError(Exception).
 
 ### Whiteboard
-![Linked List Implementation](assets/Linked%20List%20Implementation%20.png)
+![Linked List Implementation](assets/Linked%20List%20Implementation.png)
 
 ![Linked List Insertion](assets/Linked%20List%20Insertion.png)
 
