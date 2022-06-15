@@ -6,5 +6,5 @@
 4. [Mock Interview Whiteboard Grading Rubric](https://docs.google.com/spreadsheets/d/1rAaJwpQdofA5MT-mOfNGv3T1nIDdq1VbCkbFyMa66As/edit#gid=0)
 5. [Linked List Implementation](https://github.com/mlh6118/data-structures-and-algorithms/pull/4)
 6. [Linked List Insertions](https://github.com/mlh6118/data-structures-and-algorithms/pull/5)
-7.
+7. [Linked List - Zipping](https://github.com/mlh6118/data-structures-and-algorithms/pull/11)
 
