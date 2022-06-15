@@ -3,17 +3,16 @@ A singly linked list is a collection of nodes that contain a value and know
 the next node in the sequence.
 
 ## Challenge
-The challenge was to create a Node class, create a Linked List class, and
-add methods to the Linked List class for insert, includes, and to string.
-These are detailed below in the API section.
+The challenge was to create a method for the zipping of two Linked Lists
+regardless of the size of either.  This method and all previously created
+methods are detailed below in the API section.
 
 ## Approach & Efficiency
-The approach that was taken was to write a segment of code first and then
-write a test to check that segment.  This was done because I was unaware of
-where the pre-written tests were located.  After I was shown where they were,
-I went back and checked that I still passed each test.  If a test was not
-passed, I did troubleshooting with the code and fixed the issue.  All tests
-in all test files pass.
+The approach that was taken was to work on a whiteboard with a partner, then
+try to work out the step-through to see how the code might work.  Doing a
+step-through prior to actually writing code may seem counter-intuitive, but
+it helps when trying to understand multiple variables that are going back
+and forth between themselves.
 
 Big O:<br>
 Space: O(1) because a singly linked list grows linearly as new elements are
@@ -50,8 +49,8 @@ Time: O(n) because the singly linked list is traversed via a while loop.
   Linked List.
 
 ### Whiteboard
+#### Worked with JJ Escandor, Joey Marianer, Justin Hamerly (TA), and Tammy Do (TA)
 ![Linked List Implementation](assets/Linked%20List%20Implementation.png)
 
+#### Worked with Jae Loney and Joey Marianer
 ![Zipping Linked Lists](assets/zip_lists.png)
-
-#### Worked with JJ Escandor, Jae Loney, Joey Marianer, Justin Hamerly (TA), and Tammy Do (TA)
