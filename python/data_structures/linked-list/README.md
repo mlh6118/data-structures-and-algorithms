@@ -13,7 +13,7 @@ write a test to check that segment.  This was done because I was unaware of
 where the pre-written tests were located.  After I was shown where they were,
 I went back and checked that I still passed each test.  If a test was not
 passed, I did troubleshooting with the code and fixed the issue.  All tests
-in both test files pass.
+in all test files pass.
 
 Big O:<br>
 Space: O(1) because a singly linked list grows linearly as new elements are
@@ -45,10 +45,13 @@ Time: O(n) because the singly linked list is traversed via a while loop.
 * __insert_after_missing(self, search_value, new_value)__: Runs
   insert_after if search value is found.  If search value not found, raises
   TargetError(Exception).
+* __zip_lists(a, b)__: Takes two Linked Lists and combines them in
+  alternating order.  If either Linked List is empty, returns the existing
+  Linked List.
 
 ### Whiteboard
 ![Linked List Implementation](assets/Linked%20List%20Implementation.png)
 
 ![Zipping Linked Lists](assets/zip_lists.png)
 
-#### Worked with JJ Escandor, Jae, Joey Marianer, Justin Hamerly (TA), and Tammy Do (TA)
+#### Worked with JJ Escandor, Jae Loney, Joey Marianer, Justin Hamerly (TA), and Tammy Do (TA)
