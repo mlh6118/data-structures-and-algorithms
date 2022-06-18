@@ -33,3 +33,5 @@ Big O:
     removes the node.
   * __peek__: Returns the value of the front node of the queue without removal.
   * __is_empty__: Returns a boolean indicating if the queue is empty.
+
+##### Worked with: N/A
