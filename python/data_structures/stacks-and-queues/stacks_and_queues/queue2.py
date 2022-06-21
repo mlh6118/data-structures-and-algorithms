@@ -1,12 +1,14 @@
+from stacks_and_queues.node import Node
+from stacks_and_queues.invalid_operation_error import InvalidOperationError
+
+
 class Queue:
     """
-    Put docstring here
+    This class contains the following methods: __init__
     """
 
-    def __init__(self):
-        # initialization here
-        pass
+    def __init__(self, front=None):
+        self.front = front
 
-    def some_method(self):
-        # method body here
+    def enqueue(self, value):
         pass

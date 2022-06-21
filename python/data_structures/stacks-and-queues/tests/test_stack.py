@@ -1,5 +1,6 @@
 import pytest
 from stacks_and_queues.stack import Stack
+from stacks_and_queues.invalid_operation_error import InvalidOperationError
 
 def test_exists():
     assert Stack
@@ -64,7 +65,7 @@ def test_pop_until_empty():
     assert actual == expected
 
 
-@pytest.mark.skip("TODO")
+#@pytest.mark.skip("TODO")
 def test_peek():
     s = Stack()
     s.push("apple")
@@ -74,7 +75,7 @@ def test_peek():
     assert actual == expected
 
 
-@pytest.mark.skip("TODO")
+#@pytest.mark.skip("TODO")
 def test_peek_empty():
     s = Stack()
     with pytest.raises(InvalidOperationError) as e:
@@ -83,7 +84,7 @@ def test_peek_empty():
     assert str(e.value) == "Method not allowed on empty collection"
 
 
-@pytest.mark.skip("TODO")
+#@pytest.mark.skip("TODO")
 def test_pop_empty():
     s = Stack()
     with pytest.raises(InvalidOperationError) as e:

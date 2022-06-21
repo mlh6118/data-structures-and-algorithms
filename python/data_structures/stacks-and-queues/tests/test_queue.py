@@ -1,13 +1,13 @@
 import pytest
-from data_structures.queue import Queue
-from data_structures.invalid_operation_error import InvalidOperationError
+from stacks_and_queues.queue2 import Queue
+from stacks_and_queues.invalid_operation_error import InvalidOperationError
 
 
 def test_exists():
     assert Queue
 
 
-@pytest.mark.skip("TODO")
+#@pytest.mark.skip("TODO")
 def test_enqueue():
     q = Queue()
     q.enqueue("apple")
