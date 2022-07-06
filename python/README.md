@@ -9,3 +9,5 @@
 7. [Linked List - Zipping](https://github.com/mlh6118/data-structures-and-algorithms/pull/11)
 8. [Stacks and Queues Implementation](https://github.com/mlh6118/data-structures-and-algorithms/pull/19)
 9. [Stacks and Queues - Pseudo Queue](https://github.com/mlh6118/data-structures-and-algorithms/pull/18)
+10. [Stacks and Queues - Animal Shelter](https://github.com/mlh6118/data-structures-and-algorithms/pull/21)
+11. [Stacks and Queues - Brackets](https://github.com/mlh6118/data-structures-and-algorithms/pull/22)
