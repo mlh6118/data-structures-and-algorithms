@@ -30,6 +30,6 @@ Class: Cat
 * Creates a cat object.
 
 ## Whiteboard
-
+![Animal Shelter Whiteboard](assets/AnimalShelter.png)
 
 ##### Worked with: Brendon Hampton, Jae Loney, and Joey Marianer
