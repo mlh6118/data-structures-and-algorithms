@@ -45,6 +45,21 @@ class BinaryTree:
         walk(self.root)
         return values
 
+    def find_maximum_value(self):
+        if not self.root:
+            return
+
+        max_value = self.root.value
+        tree_values = self.pre_order()
+
+        print(tree_values)
+
+        for value in tree_values:
+            if value > max_value:
+                max_value = value
+
+        return max_value
+
 
 class BinarySearchTree:
     def __init__(self):
@@ -78,21 +93,15 @@ class BinarySearchTree:
         if not self.root:
             return False
 
-        def walk(node, value):
+        def walk(root, node):
+            if not root:
+                return False
 
-            print(self.root)
-
-            if not self.root:
-                return
-
-            print(node.value)
-            print(value)
-
-            if node.value > value:
-                walk(node.left, value)
-            elif node.value < value:
-                walk(node.right, value)
-            elif node.value == value:
+            if root.value == value:
                 return True
+            elif root.value > value:
+                return walk(root.left, node)
+            else:
+                return walk(root.right, node)
 
-        walk(self.root, value)
+        return walk(self.root, value)
