@@ -9,6 +9,9 @@ class Node:
 
 
 class BinaryTree:
+    def __init__(self):
+        self.root = None
+
     def pre_order(self):
         def walk(root):
             if not root:

@@ -1,4 +1,4 @@
-from .trees import Node
+from .queue_node import Node
 from .invalid_operation_error import InvalidOperationError
 
 
