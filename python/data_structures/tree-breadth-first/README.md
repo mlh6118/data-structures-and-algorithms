@@ -1,21 +1,27 @@
 ### Challenge Summary
-Write a method that takes in a binary tree and returns a list of values in a
-breadth-first order.
+Conduct "FizzBuzz" on a k-ary tree while traversing through it to create a
+new tree.  Set the values of each of the new nodes depending on the
+corresponding node value in the source tree.
 
 ### Whiteboard Process
-![breadth-first whiteboard](assets/breadth_first_whiteboard.jpg)
+![k-ary trees - Frame 1.jpg](assets/k-ary%20trees%20-%20Frame%201.jpg)
+![k-ary trees - Frame 2.jpg](assets/k-ary%20trees%20-%20Frame%202.jpg)
 
 ### Approach & Efficiency
-The approach that was taken was to copy the invalid_operation_error.py,
-queue.py, and trees.py files from previous projects into this project.  Then,
-using a test driven development (TDD), write the code that would be needed.
+The approach that was taken was to try to enqueue the active node, then
+dequeue it and enqueue its children followed by changing the value to "fizz,
+" "buzz," "fizzbuzz," or just a string containing the original number based
+on how it was divisible, and finally putting the new value into a new node
+into the new tree.
 
 Big O:
-Space: O(n) because we are creating a new data structure in the form of a
-queue which scales as we add more nodes.
-Time: O(w) because we are looking at each level the tree at one time.
+* Space: O(2 * n) &rarr; O(n) because we are creating two new data structures
+in the form of a queue which scales as we add more nodes and a new tree.
+* Time: O(n<sup>2</sup>) because we are going through two nested loops, one for
+the while and one for the inner for.
 
 ### API
-__breadth_first__: takes in a tree and returns a list of values.
+__fizz_buzz_tree__: takes in a tree, performs fizzbuzz on it, and produces a
+new tree with the results of fizzbuzz.
 
-##### Worked with: Jae Loney, Brendon Hampton, Brian Tarte, Pedro Perez, Joey Marianer
+##### Worked with: Jae Loney, Pedro Perez, Sergii Otryshko
