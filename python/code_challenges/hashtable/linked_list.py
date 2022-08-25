@@ -232,6 +232,22 @@ class LinkedList:
             message = "Value to insert after does not exist."
             raise TargetError(message)
 
+    def size(self):
+        count = 0
+        current = self.head
+        while current:
+            count += 1
+            current = current.next
+        return count
+
+    def to_list(self):
+        current = self.head
+        ret = []
+        while current:
+            ret.append(current.value)
+            current = current.next
+        return ret
+
 
 class TargetError(Exception):
     def __init__(self, message):
