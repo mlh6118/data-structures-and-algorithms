@@ -1,9 +1,12 @@
 from node import Node
 
+
 class InvalidOperationError(BaseException):
   pass
 
+
 class Queue:
+
   def __init__(self):
     self.front = None
     self.rear = None
@@ -33,7 +36,7 @@ class Queue:
     return self.front.value
 
   def is_empty(self):
-    True if self.front is None else False
+    return True if self.front is None else False
     # if self.front is None:
     #     return True
     # else:
