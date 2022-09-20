@@ -9,8 +9,14 @@ from data_structures.binary_search_tree import BinarySearchTree
 # Iterate a linked list iteratively and return the largest value
 # input_linked_list (7)->(2)->(13)->(9)->(3)
 def iterate_linkedlist_iteratively(input_linked_list):
-    # code here, change return the largest value
-    return 0
+    ll = input_linked_list
+    largest = 0
+    current = ll.head
+    while current:
+        if current.value > largest:
+            largest = current.value
+        current = current.next
+    return largest
 
 
 # ##################### NEW #####################################
@@ -18,8 +24,14 @@ def iterate_linkedlist_iteratively(input_linked_list):
 # Iterate through a linked list iteratively and return the smallest value
 # input_linked_list (7)->(2)->(13)->(9)->(3)
 def iterate_linkedlist_iteratively_small(input_linked_list):
-    # code here, change return the smallest value
-    return 0
+    ll = input_linked_list
+    current = ll.head
+    smallest = current.value
+    while current:
+        if current.value < smallest:
+            smallest = current.value
+        current = current.next
+    return smallest
 
 
 # ##################### NEW #####################################
@@ -28,8 +40,14 @@ def iterate_linkedlist_iteratively_small(input_linked_list):
 # input_linked_list (7)->(2)->(13)->(2)->(9)->(3)->(9)
 
 def iterate_linkedlist_iteratively_duplicates(input_linked_list):
-    # code here, remove duplicate values
-    return 0
+    ll = input_linked_list
+    ll_new = []
+    current = ll.head
+    while current:
+        if current.value not in ll_new:
+            ll_new.append(current.value)
+        current = current.next
+    return ll_new
 
 
 # ##################### NEW #####################################
@@ -38,38 +56,64 @@ def iterate_linkedlist_iteratively_duplicates(input_linked_list):
 # input_linked_list (7)->(2)->(13)->(-9)->(3)->(-21)
 
 def iterate_linkedlist_furthest_from_zero(input_linked_list):
-    # code here, remove duplicate values
-    return 0
+    ll = input_linked_list
+    current = ll.head
+    furthest = current.value
+    while current:
+        if abs(current.value) > abs(furthest):
+            furthest = current.value
+        current = current.next
+    return furthest
 
 
 # Iterate a linked list recursively and return the largest value
 # input_linked_list (7)->(2)->(13)->(9)->(3)
 def iterate_linkedlist_recursively(input_node, largest=0):
-    # code here, change return the largest value
-    return 0
+    current = input_node
+    if current.value > largest:
+        largest = current.value
+    if current.next:
+        return iterate_linkedlist_recursively(current.next, largest)
+    return largest
 
 
 # ##################### NEW #####################################
 # Write a test to cover this
-# Iterate through a linked list recursively and return the largest value
+# Iterate through a linked list recursively and return the smallest value
 # input_linked_list (7)->(2)->(13)->(9)->(3)
-def iterate_linkedlist_recursively_smallest(input_node, largest=0):
-    # code here, change return the largest value
-    return 0
+# Using None because "smallest = 0" could cause issues if smallest is a negative number and the next is 0.
+def iterate_linkedlist_recursively_smallest(input_node, smallest=None):
+    current = input_node
+    if smallest is None:
+        smallest = current.value
+    if current.value < smallest:
+        smallest = current.value
+    if current.next:
+        return iterate_linkedlist_recursively_smallest(current.next, smallest)
+    return smallest
 
 
 # Iterate a stack iteratively and return the largest value
 # input_stack (7)->(2)->(13)->(9)->(3)
 def iterate_stack_iteratively(input_stack):
-    # code here, change return the largest number
-    return 0
+    largest = 0
+    while not input_stack.is_empty():
+        value = input_stack.pop()
+        if value > largest:
+            largest = value
+    return largest
 
 
 # Iterate a stack recursively and return the largest value
 # input_stack (7)->(2)->(13)->(9)->(3)
 def iterate_stack_recursively(input_stack, largest=0):
-    # code here, change return the largest number
-    return 0
+    if largest is None:
+        largest = input_stack.top.value
+    if input_stack.top.value > largest:
+        largest = input_stack.top.value
+    if input_stack.top.next:
+        return iterate_stack_recursively(input_stack, largest)
+    return largest
 
 
 # Iterate a queue iteratively and return the largest value
@@ -159,8 +203,14 @@ def bst_contains(input_tree, value):
 def run_tests():
     # Linked List Tests
     input_linked_list = make_linked_list()
-    print("LinkedList Iteratively: {}".format(iterate_linkedlist_iteratively(input_linked_list)))
-    print("LinkedList Recursively: {}".format(iterate_linkedlist_recursively(input_linked_list.head)))
+    print("LinkedList Iteratively Largest: {}".format(iterate_linkedlist_iteratively(input_linked_list)))
+    print("LinkedList Iteratively Smallest: {}".format(iterate_linkedlist_iteratively_small(input_linked_list)))
+    print("LinkedList Duplicates Removed: {}".format(iterate_linkedlist_iteratively_duplicates(input_linked_list)))
+    print("LinkedList Recursively Largest: {}".format(iterate_linkedlist_recursively(input_linked_list.head)))
+    print("LinkedList Recursively Smallest: {}".format(iterate_linkedlist_recursively_smallest(input_linked_list.head)))
+
+    input_linked_list = make_linked_list2()
+    print("LinkedList Furthest From 0: {}".format(iterate_linkedlist_furthest_from_zero(input_linked_list)))
 
     # Stack Tests
     input_stack = make_stack()
@@ -189,13 +239,29 @@ def run_tests():
 
 # helper methods to instatiate the datastructures
 def make_linked_list():
+    # input_linked_list (7)->(2)->(13)->(2)->(9)->(3)->(9)
     input_linked_list = LinkedList()
     input_linked_list.add(7)
     input_linked_list.add(2)
     input_linked_list.add(13)
+    input_linked_list.add(2)
     input_linked_list.add(9)
     input_linked_list.add(3)
+    input_linked_list.add(9)
     return input_linked_list
+
+
+def make_linked_list2():
+    # input_linked_list (7)->(2)->(13)->(-9)->(3)->(-21)
+    input_linked_list = LinkedList()
+    input_linked_list.add(7)
+    input_linked_list.add(2)
+    input_linked_list.add(13)
+    input_linked_list.add(-9)
+    input_linked_list.add(3)
+    input_linked_list.add(-21)
+    return input_linked_list
+
 
 
 def make_stack():

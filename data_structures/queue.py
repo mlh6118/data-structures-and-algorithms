@@ -1,4 +1,4 @@
-from node import Node
+from .node import Node
 
 
 class InvalidOperationError(BaseException):
@@ -11,7 +11,7 @@ class Queue:
     self.front = None
     self.rear = None
     self.counter = 0
-  
+
   def enqueue(self, value):
     node = Node(value)
     if self.front is None:
@@ -21,7 +21,7 @@ class Queue:
         self.rear.next = node
         self.rear = node
     self.counter +=1
-  
+
   def dequeue(self):
     if self.is_empty():
         raise InvalidOperationError("Your queue is empty")

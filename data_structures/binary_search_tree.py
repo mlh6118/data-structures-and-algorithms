@@ -1,4 +1,4 @@
-from node import Node
+from .node import Node
 
 class BinarySearchTree:
   def __init__(self):
@@ -23,4 +23,3 @@ class BinarySearchTree:
         self.add(value, node.right)
 
 
-      
