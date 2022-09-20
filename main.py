@@ -24,8 +24,8 @@ def iterate_linkedlist_iteratively_small(input_linked_list):
 
 # ##################### NEW #####################################
 # Write a test to cover this
-# Iterate through a linked list iteratively and return the smallest value
-# input_linked_list (7)->(2)->(13)->(9)->(3)
+# Iterate through a linked list iteratively and remove duplicate values
+# input_linked_list (7)->(2)->(13)->(2)->(9)->(3)->(9)
 
 def iterate_linkedlist_iteratively_duplicates(input_linked_list):
     # code here, remove duplicate values
@@ -35,7 +35,7 @@ def iterate_linkedlist_iteratively_duplicates(input_linked_list):
 # ##################### NEW #####################################
 # Write a test to cover this
 # Iterate through a linked list, and return the value furthest removed from zero
-# input_linked_list (7)->(2)->(13)->(9)->(3)
+# input_linked_list (7)->(2)->(13)->(-9)->(3)->(-21)
 
 def iterate_linkedlist_furthest_from_zero(input_linked_list):
     # code here, remove duplicate values
@@ -128,7 +128,7 @@ def level_order_traversal(input_tree):
 #                     /   \
 #                  -3      13
 #                 /   \   /   \
-#               -21     5 9     17
+#               -21     5 9    17
 #
 # Given a bst, return value the furthest removed from zero
 def bst_contains(input_tree):
