@@ -106,28 +106,40 @@ def iterate_stack_iteratively(input_stack):
 
 # Iterate a stack recursively and return the largest value
 # input_stack (7)->(2)->(13)->(9)->(3)
-def iterate_stack_recursively(input_stack, largest=0):
-    if largest is None:
-        largest = input_stack.top.value
-    if input_stack.top.value > largest:
-        largest = input_stack.top.value
-    if input_stack.top.next:
-        return iterate_stack_recursively(input_stack, largest)
-    return largest
+def iterate_stack_recursively(input_stack: Stack):
+    def iterate_stack_node_recursively(input_node: Node, largest=0):
+        if input_node is None:
+            return largest
+        if input_node.value > largest:
+            largest = input_node.value
+        input_node = input_node.next
+        return iterate_stack_node_recursively(input_node, largest)
+    return iterate_stack_node_recursively(input_stack.top)
 
 
 # Iterate a queue iteratively and return the largest value
 # input_queue (7)->(2)->(13)->(9)->(3)
 def iterate_queue_iteratively(input_queue):
-    # code here, change return the largest number
-    return 0
+    largest = 0
+    input_queue_node = input_queue.front
+    while input_queue_node:
+        if input_queue_node.value > largest:
+            largest = input_queue_node.value
+        input_queue_node = input_queue_node.next
+    return largest
 
 
 # Iterate a queue recursively and return the largest value
 # input_queue (7)->(2)->(13)->(9)->(3)
-def iterate_queue_recursively(input_queue, largest=0):
-    # code here, change return the largest number
-    return 0
+def iterate_queue_recursively(input_queue: Queue):
+    def iterate_queue_node_recursively(input_queue_node, largest=0):
+        if input_queue_node is None:
+            return largest
+        if input_queue_node.value > largest:
+            largest = input_queue_node.value
+        input_queue_node = input_queue_node.next
+        return iterate_queue_node_recursively(input_queue_node, largest)
+    return iterate_queue_node_recursively(input_queue.front)
 
 
 # Perform a Pre-Order, In-Order, and Post-Order traversal of a binary tree.
@@ -139,30 +151,56 @@ def iterate_queue_recursively(input_queue, largest=0):
 #
 # Pre-Order Traveral
 # expected [4, 7, 3, 1, 18, 5, 11]
-def pre_order_traversal(input_node, values=[]):
-    # code here, return a list of pre-ordered values
+def pre_order_traversal(input_node):
+    if input_node is None:
+        return []
+    part1: list[int] = [input_node.value]
+    part2: list[int] = pre_order_traversal(input_node.left)
+    part3: list[int] = pre_order_traversal(input_node.right)
+    values = part1 + part2 + part3
     return values
 
 
 # In-Order Traveral
 # expected [3, 7, 1, 4, 5, 18, 11]
-def in_order_traversal(input_node, values=[]):
-    # code here, return a list of in-order values
+def in_order_traversal(input_node):
+    if input_node is None:
+        return []
+    part1: list[int] = in_order_traversal(input_node.left)
+    part2: list[int] = [input_node.value]
+    part3: list[int] = in_order_traversal(input_node.right)
+    values = part1 + part2 + part3
     return values
 
 
 # Post-Order Traveral
 # expected [3, 1, 7, 5, 11, 18, 4]
-def post_order_traversal(input_node, values=[]):
-    # code here, return a list of post-ordered values
+def post_order_traversal(input_node):
+    if input_node is None:
+        return []
+    part1: list[int] = post_order_traversal(input_node.left)
+    part2: list[int] = post_order_traversal(input_node.right)
+    part3: list[int] = [input_node.value]
+    values = part1 + part2 + part3
     return values
 
 
 # Level Order, or Breadth First, Traversal
 # expected [4, 7, 18, 3, 1, 5, 11]
 def level_order_traversal(input_tree):
-    # code here, return a list of values
-    return []
+    values = []
+    queue = Queue()
+    queue.enqueue(input_tree.root)
+
+    while not queue.is_empty():
+        current: Node = queue.dequeue()
+        values.append(current.value)
+        if current.left:
+            queue.enqueue(current.left)
+        if current.right:
+            queue.enqueue(current.right)
+
+    return values
 
 
 # ##################### NEW #####################################
@@ -175,10 +213,21 @@ def level_order_traversal(input_tree):
 #               -21     5 9    17
 #
 # Given a bst, return value the furthest removed from zero
-def bst_contains(input_tree):
-    # code here, return value the furthest remove from zero
-    return None
+def bst_furthest_from_zero(input_tree: BinarySearchTree):
+    node = input_tree.root
+    while node.left:
+        node = node.left
+    smallest = node.value
 
+    node = input_tree.root
+    while node.right:
+        node = node.right
+    largest = node.value
+
+    if abs(smallest) > abs(largest):
+        return smallest
+    else:
+        return largest
 
 # Binary Search Tree for contains
 #                       7
@@ -188,9 +237,19 @@ def bst_contains(input_tree):
 #                1     5 9     17
 #
 # Given a value return true or false if it's contained within the binary search tree
-def bst_contains(input_tree, value):
-    # code here, return true or false
-    return None
+def bst_contains(input_tree: BinarySearchTree, value):
+    def function_that_takes_a_node(node: Node):
+        if node is None:
+            return False
+        if node.value == value:
+            return True
+        if node.value > value:
+            node = node.left
+            return function_that_takes_a_node(node)
+        if node.value < value:
+            node = node.right
+            return function_that_takes_a_node(node)
+    return function_that_takes_a_node(input_tree.root)
 
 
 # -----------------------------------------------------
@@ -216,6 +275,7 @@ def run_tests():
     input_stack = make_stack()
     print("Stack Iteratively: {}".format(iterate_stack_iteratively(input_stack)))
     input_stack = make_stack()
+    # print("Stack Recursively Top: {}".format(input_stack.top.value))
     print("Stack Recursively: {}".format(iterate_stack_recursively(input_stack)))
 
     # Queue Tests
@@ -232,7 +292,9 @@ def run_tests():
     print("Level-Order Traversal: \n{}".format(level_order_traversal(input_binary_tree)))
 
     # Binary Search Tree Contains and Depth Search Tests
-    input_binary_search_tree = make_binary_search_tree()
+    input_binary_search_tree = make_binary_search_tree1()
+    print("Binary Search Tree Furthest From Zero: {}".format(bst_furthest_from_zero(input_binary_search_tree)))
+    input_binary_search_tree = make_binary_search_tree2()
     print("Binary Search Tree Contains 13: {}".format(bst_contains(input_binary_search_tree, 13)))
     print("Binary Search Tree Contains 11: {}".format(bst_contains(input_binary_search_tree, 11)))
 
@@ -303,7 +365,20 @@ def make_binary_tree():
     return input_binary_tree
 
 
-def make_binary_search_tree():
+def make_binary_search_tree1():
+    input_binary_search_tree = BinarySearchTree()
+    input_binary_search_tree.add(7, None)
+    root = input_binary_search_tree.root
+    input_binary_search_tree.add(-3, root)
+    input_binary_search_tree.add(-21, root)
+    input_binary_search_tree.add(5, root)
+    input_binary_search_tree.add(13, root)
+    input_binary_search_tree.add(9, root)
+    input_binary_search_tree.add(17, root)
+    return input_binary_search_tree
+
+
+def make_binary_search_tree2():
     input_binary_search_tree = BinarySearchTree()
     input_binary_search_tree.add(7, None)
     root = input_binary_search_tree.root
